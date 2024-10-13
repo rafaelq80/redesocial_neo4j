@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Neo4jModule } from 'nest-neo4j/dist';
 import { UsuarioModule } from './usuario/usuario.module';
+import { PostagemModule } from './postagem/postagem.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { UsuarioModule } from './usuario/usuario.module';
       },
     }),
     UsuarioModule,
+    PostagemModule,
   ],
   controllers: [],
   providers: [],
