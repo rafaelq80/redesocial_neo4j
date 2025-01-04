@@ -1,21 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { Neo4jModule } from 'nest-neo4j/dist';
-import { UsuarioModule } from './usuario/usuario.module';
 import { PostagemModule } from './postagem/postagem.module';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
     Neo4jModule.forRoot({
       scheme: 'bolt',
-      host: 'localhost',
+      host: '127.0.0.1', 
       port: 7687,
       username: 'neo4j',
       password: 'rootroot',
+      database: 'neo4j', 
       config: {
         encrypted: false,
-        trust: 'TRUST_ALL_CERTIFICATES',
+        maxConnectionPoolSize: 50,
+        connectionTimeout: 30000, 
       },
     }),
     UsuarioModule,
